@@ -1,4 +1,8 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Test {
 
 
@@ -69,10 +73,43 @@ public class Test {
         System.out.println(listper.remove(new Personne(2,17,"ben fa","sana")));
         System.out.println(listper.get(1));
          Personne pers=listper.get(0);
+         ////////liste d'integer
+        /////Tri croissante
+         List<Integer> I_list = new ArrayList<Integer>();
+         I_list.add(5) ;
+        I_list.add(8) ;
+        I_list.add(0) ;
+        I_list.add(2) ;
+        Collections.sort(I_list);
+        for( Object o:I_list) {
+            System.out.println(o);
+        }
+        //tri décroissante
+        Collections.sort(I_list,Collections.reverseOrder());
+        System.out.println(I_list);
          //créer une liste de interger et faite le tri crois et decr
         //créer une liste de String et faite le tri crois et decr
         //trier la liste de personne
         ArrayList<String> lists=new ArrayList<>();
+        lists.add("Mohamed") ;
+        lists.add("Aziz") ;
+        lists.add("Naffeti") ;
+        Collections.sort(lists);
+        System.out.println("string list en ordre croissant"+lists);
+        Collections.sort(lists,Collections.reverseOrder());
+        System.out.println("string list en ordre décroissant"+lists);
+        /////////tri de la liste personne méthode comparable
+        System.out.println("liste per avant tri selon l'id avec compareto"+listper);
+        Collections.sort(listper);
+        System.out.println("liste per aprés tri selon l'id avec compareto"+listper);
+        //////////////////////////////////////////////////////////
+        ////// tri de la liste personne using comparator
+        listper.add(new Personne(0,12,"Aziz","Naffeti")) ;
+        Collections.sort(listper,Personne.AgeComparator);
+        System.out.println("liste per aprés tri selon age comparator"+listper);
+        Collections.sort(listper,Personne.IdComparator);
+        System.out.println("listeper apres tri selone id compartor"+listper);
+
 
     }
 }

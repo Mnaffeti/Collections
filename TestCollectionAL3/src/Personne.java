@@ -1,4 +1,6 @@
-public class Personne {
+import java.util.Comparator;
+
+public class Personne implements Comparable<Personne> {
     private int id,age;
     private String nom,prenom;
 
@@ -64,4 +66,21 @@ public class Personne {
             return true;
         return false;
     }
+
+    @Override
+    public int compareTo(Personne o) {
+        return (this.id-o.id);
+    }
+    public static Comparator<Personne> AgeComparator = new Comparator<Personne>() {
+        @Override
+        public int compare(Personne o1, Personne o2) {
+            return o1.getAge()-o2.getAge();
+        }
+    };
+    public static  Comparator<Personne> IdComparator=new Comparator<Personne>() {
+        @Override
+        public int compare(Personne o1, Personne o2) {
+            return o1.getId()-o2.getId();
+        }
+    };
 }
