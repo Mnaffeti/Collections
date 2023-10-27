@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Test {
 
@@ -22,7 +19,7 @@ public class Test {
         System.out.println(list.contains(5));
         System.out.println(list.remove(5));
         Integer a=5;
-        System.out.println(list.remove(new Integer(5)));
+         // .out.println(list.remove(new Integer(5)));
         System.out.println(list.remove("test"));
 
         Personne p1=new Personne(1,15,"ben","ons");
@@ -109,6 +106,30 @@ public class Test {
         System.out.println("liste per aprés tri selon age comparator"+listper);
         Collections.sort(listper,Personne.IdComparator);
         System.out.println("listeper apres tri selone id compartor"+listper);
+        ///
+        Set<Integer> ts = new TreeSet<>() ;
+        ts.add(1);
+        ts.add(4) ;
+        ts.add(0) ;
+
+        System.out.println(ts);
+        Set<Personne>tp=new TreeSet<>( Personne.AgeComparator) ;
+        tp.add(new Personne(1,14,"q","b"));
+        tp.add(new Personne(1,18,"q","b"));
+        tp.add(new Personne(1,1,"q","b"));
+        System.out.println(tp);
+        /////////////TD SET
+        Scanner s=new Scanner(System.in) ;
+        System.out.println("1 pour treeset/2 pour hashet");
+        int choix =s.nextInt() ;
+        SetTest tr=new SetTest(choix) ;
+        Enseignant Ens1=new Enseignant(8,"a","b");
+        tr.ajouterEnseignant(new Enseignant(1,"Wissem","Zoghlemi"));
+        tr.ajouterEnseignant(new Enseignant(2,"Riadh","JB"));
+        tr.ajouterEnseignant(new Enseignant(3,"Aziz","Naffeti"));
+        tr.displayEnseignants();
+        System.out.println(tr.rechercherEnseignant(4)) ;
+        tr.supprimerEnseignant(Ens1);
 
 
     }
